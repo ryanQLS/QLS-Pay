@@ -1,254 +1,626 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QLS Pay</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Inter, Arial, sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QLS Pay | POS & Payment Solutions</title>
 
-        body {
-            background: linear-gradient(180deg, #071129 0%, #08172d 100%);
-            color: #f8fafc;
-            min-height: 100vh;
-        }
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0d1b2f;
+      --card: rgba(255, 255, 255, 0.08);
+      --text: #f5f7fb;
+      --muted: #a9b4c7;
+      --primary: #2ee6a6;
+      --secondary: #4da3ff;
+      --border: rgba(255, 255, 255, 0.14);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+    }
 
-        .page {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 30px 20px;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .top-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            padding-bottom: 20px;
-        }
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(46, 230, 166, 0.22), transparent 35%),
+        radial-gradient(circle at top right, rgba(77, 163, 255, 0.25), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        .brand-logo {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            color: #ffffff;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        .brand-logo .mark {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            background: #2563eb;
-            display: grid;
-            place-items: center;
-            font-size: 1rem;
-            font-weight: 800;
-            color: white;
-        }
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
 
-        .hero {
-            display: grid;
-            gap: 30px;
-            padding: 40px 0 60px;
-        }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 17, 31, 0.78);
+      border-bottom: 1px solid var(--border);
+    }
 
-        h1 {
-            font-size: clamp(2.8rem, 5vw, 4.8rem);
-            line-height: 1.02;
-            max-width: 760px;
-        }
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-        p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #cbd5e1;
-            max-width: 680px;
-        }
+    .logo {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
 
-        .highlight {
-            color: #38bdf8;
-        }
+    .logo span {
+      color: var(--primary);
+    }
 
-        .cta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            align-items: center;
-            justify-content: center;
-        }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: #2563eb;
-            color: white;
-            text-decoration: none;
-            padding: 16px 32px;
-            border-radius: 999px;
-            font-weight: 700;
-            transition: transform 0.25s ease, background 0.25s ease;
-        }
+    .nav-links a:hover {
+      color: var(--text);
+    }
 
-        .btn:hover {
-            background: #1d4ed8;
-            transform: translateY(-1px);
-        }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #06101d;
+      font-weight: 800;
+      box-shadow: 0 14px 38px rgba(46, 230, 166, 0.22);
+      transition: 0.25s ease;
+      border: none;
+      cursor: pointer;
+    }
 
-        .partner-panel {
-            background: rgba(15, 23, 42, 0.85);
-            border: 1px solid rgba(148, 163, 184, 0.18);
-            border-radius: 24px;
-            padding: 34px 32px;
-            margin-top: 22px;
-        }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 48px rgba(77, 163, 255, 0.28);
+    }
 
-        .partner-panel h2 {
-            font-size: 1.8rem;
-            margin-bottom: 14px;
-        }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+      box-shadow: none;
+    }
 
-        .partner-panel p {
-            max-width: 700px;
-            margin-bottom: 28px;
-        }
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: grid;
+      align-items: center;
+      padding: 90px 0;
+    }
 
-        .logos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 18px;
-        }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 54px;
+      align-items: center;
+    }
 
-        .logo-card {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(148, 163, 184, 0.12);
-            border-radius: 18px;
-            padding: 22px;
-            min-height: 120px;
-            display: grid;
-            place-items: center;
-            color: #e2e8f0;
-            font-weight: 700;
-            letter-spacing: 0.03em;
-        }
+    .badge {
+      display: inline-flex;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.88rem;
+      margin-bottom: 22px;
+    }
 
-        .logo-card span {
-            display: inline-block;
-            font-size: 1rem;
-            color: #94a3b8;
-            margin-top: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-        }
+    h1 {
+      font-size: clamp(3rem, 7vw, 5.9rem);
+      line-height: 0.95;
+      letter-spacing: -0.07em;
+      margin-bottom: 26px;
+    }
 
-        @media (max-width: 720px) {
-            .top-bar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+    h1 span {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
 
-            .cta-row {
-                justify-content: center;
-            }
-        }
-    </style>
+    .hero p {
+      color: var(--muted);
+      font-size: 1.16rem;
+      max-width: 620px;
+      margin-bottom: 34px;
+    }
 
-        h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-        }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
 
-        p {
-            font-size: 1.2rem;
-            color: #cbd5e1;
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
+    .hero-card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.04));
+      border: 1px solid var(--border);
+      border-radius: 34px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
 
-        .btn {
-            display: inline-block;
-            background: #2563eb;
-            color: white;
-            text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 8px;
-            font-weight: bold;
-        }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -80px;
+      background: radial-gradient(circle, rgba(46, 230, 166, 0.22), transparent 48%);
+      z-index: -1;
+    }
 
-        .partners {
-            margin-top: 60px;
-        }
+    .terminal {
+      background: #07101c;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+    }
 
-        .partners h2 {
-            margin-bottom: 20px;
-        }
+    .terminal-top {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
 
-        .logos {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            color: #94a3b8;
-            font-size: 1.2rem;
-        }
-    </style>
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    .dot:nth-child(2) { background: #ffcc4d; }
+    .dot:nth-child(3) { background: #ff5f57; }
+
+    .metric {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .metric:last-child {
+      border-bottom: 0;
+    }
+
+    .metric strong {
+      color: var(--text);
+    }
+
+    .metric span {
+      color: var(--muted);
+    }
+
+    section {
+      padding: 96px 0;
+    }
+
+    .section-title {
+      max-width: 720px;
+      margin-bottom: 42px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2.1rem, 4vw, 3.4rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin-bottom: 16px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 28px;
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      background: rgba(255, 255, 255, 0.11);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: grid;
+      place-items: center;
+      color: #06101d;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .partners {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+    }
+
+    .partner {
+      min-height: 96px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.07);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-weight: 800;
+      color: var(--text);
+      transition: 0.25s ease;
+    }
+
+    .partner:hover {
+      border-color: rgba(46, 230, 166, 0.55);
+      color: var(--primary);
+      transform: translateY(-4px);
+    }
+
+    .mission {
+      background: linear-gradient(135deg, rgba(46, 230, 166, 0.14), rgba(77, 163, 255, 0.12));
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mission-box {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .mission-number {
+      font-size: clamp(5rem, 12vw, 9rem);
+      line-height: 0.85;
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .cta {
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(46,230,166,0.18), transparent 45%),
+        var(--bg);
+    }
+
+    .cta h2 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      margin-bottom: 18px;
+    }
+
+    .cta p {
+      color: var(--muted);
+      max-width: 660px;
+      margin: 0 auto 30px;
+    }
+
+    footer {
+      padding: 34px 0;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 0.92rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: 0.7s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .mission-box {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .partners {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">QLS<span> Pay</span></a>
 
-<div class="page">
-    <header class="top-bar">
-        <a class="brand-logo" href="#">
-            <div class="mark">Q</div>
-            <div>
-                <div>QLS Pay</div>
-                <div style="font-size:0.85rem; color:#94a3b8;">Partner-focused payments</div>
-            </div>
-        </a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#partners">Partners</a>
+        <a href="#mission">Mission</a>
+        <a href="#contact" class="btn">Get Started</a>
+      </nav>
+    </div>
+  </header>
 
-        <a class="btn" href="mailto:info@qlspay.ca">Contact Us</a>
-    </header>
-
+  <main>
     <section class="hero">
+      <div class="container hero-grid">
         <div>
-            <h1>Payment partnerships that fit your business.</h1>
-            <p>
-                QLS Pay works with leading POS partners to deliver payment processing solutions built around what works best for your business.
-                From Clover to Moneris and Global, we help you choose the right path and keep execution simple.
-            </p>
+          <div class="badge">ISO Payment Solutions Partner</div>
+          <h1>Modern payment solutions for growing businesses.</h1>
+          <p>
+            QLS Pay connects merchants with reliable POS and payment processing
+            solutions through trusted partners including Clover, Nuvei, Moneris,
+            Global Payments, and Panda Pay.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn">Partner With QLS</a>
+            <a href="#about" class="btn btn-outline">Learn More</a>
+          </div>
         </div>
 
-        <div class="partner-panel">
-            <h2>We partner with the best</h2>
-            <p>
-                We connect you with proven POS and payments platforms so you can move forward with confidence.
-                Our focus is on finding the right solution for your business, not just a one-size-fits-all service.
-            </p>
-
-            <div class="logos">
-                <div class="logo-card">
-                    <strong>Clover</strong>
-                    <span>Modern POS</span>
-                </div>
-                <div class="logo-card">
-                    <strong>Moneris</strong>
-                    <span>Trusted provider</span>
-                </div>
-                <div class="logo-card">
-                    <strong>Global</strong>
-                    <span>Wide coverage</span>
-                </div>
+        <div class="hero-card">
+          <div class="terminal">
+            <div class="terminal-top">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
             </div>
-        </div>
-    </section>
-</div>
 
+            <div class="metric">
+              <span>POS Solutions</span>
+              <strong>Flexible</strong>
+            </div>
+            <div class="metric">
+              <span>Merchant Support</span>
+              <strong>Reliable</strong>
+            </div>
+            <div class="metric">
+              <span>Payment Partners</span>
+              <strong>Trusted</strong>
+            </div>
+            <div class="metric">
+              <span>Business Growth</span>
+              <strong>Focused</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>Who QLS Pay is</h2>
+          <p>
+            QLS Pay is an ISO helping businesses access payment processing,
+            point-of-sale systems, and merchant service solutions that fit the
+            way they operate.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card reveal">
+            <div class="icon">01</div>
+            <h3>POS Expertise</h3>
+            <p>
+              We help businesses find POS systems that simplify checkout,
+              reporting, payments, and day-to-day operations.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <div class="icon">02</div>
+            <h3>Merchant Solutions</h3>
+            <p>
+              From retail to restaurants and service-based businesses, QLS Pay
+              helps merchants access payment tools built for growth.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <div class="icon">03</div>
+            <h3>Partner Network</h3>
+            <p>
+              We work with recognized payment and POS providers to give
+              businesses options, confidence, and support.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="partners">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>Our partner network</h2>
+          <p>
+            QLS Pay works with leading POS and payment companies to help
+            merchants choose the right solution for their business.
+          </p>
+        </div>
+
+        <div class="partners reveal">
+          <div class="partner">Clover</div>
+          <div class="partner">Nuvei</div>
+          <div class="partner">Moneris</div>
+          <div class="partner">Global Payments</div>
+          <div class="partner">Panda Pay</div>
+          <div class="partner">POS Providers</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission" class="mission">
+      <div class="container mission-box">
+        <div class="mission-number reveal">QLS</div>
+
+        <div class="section-title reveal">
+          <h2>What we are trying to achieve</h2>
+          <p>
+            Our mission is to make payment technology easier for businesses.
+            QLS Pay aims to bridge the gap between merchants and trusted POS
+            providers by offering guidance, access, and reliable support.
+          </p>
+          <p>
+            We want business owners to spend less time worrying about payments
+            and more time serving customers, increasing sales, and growing with
+            confidence.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>Built for businesses that move fast</h2>
+          <p>
+            Whether a merchant needs a new POS system, better payment options,
+            or a partner who understands the merchant services space, QLS Pay is
+            here to help.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card reveal">
+            <div class="icon">✓</div>
+            <h3>Retail</h3>
+            <p>
+              POS and payment solutions for stores, boutiques, convenience
+              shops, and multi-location businesses.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <div class="icon">✓</div>
+            <h3>Restaurants</h3>
+            <p>
+              Tools for quick service, full service, cafés, bars, and food
+              businesses that need speed and reliability.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <div class="icon">✓</div>
+            <h3>Service Businesses</h3>
+            <p>
+              Payment solutions for professional services, contractors, mobile
+              businesses, and growing local companies.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="cta">
+      <div class="container reveal">
+        <h2>Ready to simplify payments?</h2>
+        <p>
+          Connect with QLS Pay and discover POS and merchant solutions designed
+          to support your business today and as you grow.
+        </p>
+        <a href="mailto:info@qlspay.com" class="btn">Contact QLS Pay</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> QLS Pay. All rights reserved.</p>
+      <p>Clover, Nuvei, Moneris, Global Payments, and Panda Pay are trademarks of their respective owners.</p>
+    </div>
+  </footer>
+
+  <script>
+    const year = document.getElementById("year");
+    year.textContent = new Date().getFullYear();
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealOnScroll = () => {
+      revealElements.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 90) {
+          element.classList.add("active");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+  </script>
 </body>
 </html>
