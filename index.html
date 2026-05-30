@@ -4,28 +4,162 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QLS Pay</title>
-        <h1>TEST UPDATE</h1>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: Inter, Arial, sans-serif;
         }
 
         body {
-            background: #0f172a;
+            background: linear-gradient(180deg, #071129 0%, #08172d 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding-bottom: 20px;
+        }
+
+        .brand-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: #ffffff;
+        }
+
+        .brand-logo .mark {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: #2563eb;
+            display: grid;
+            place-items: center;
+            font-size: 1rem;
+            font-weight: 800;
             color: white;
-            text-align: center;
         }
 
         .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 20px;
+            display: grid;
+            gap: 30px;
+            padding: 40px 0 60px;
         }
+
+        h1 {
+            font-size: clamp(2.8rem, 5vw, 4.8rem);
+            line-height: 1.02;
+            max-width: 760px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #cbd5e1;
+            max-width: 680px;
+        }
+
+        .highlight {
+            color: #38bdf8;
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 999px;
+            font-weight: 700;
+            transition: transform 0.25s ease, background 0.25s ease;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .partner-panel {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            border-radius: 24px;
+            padding: 34px 32px;
+            margin-top: 22px;
+        }
+
+        .partner-panel h2 {
+            font-size: 1.8rem;
+            margin-bottom: 14px;
+        }
+
+        .partner-panel p {
+            max-width: 700px;
+            margin-bottom: 28px;
+        }
+
+        .logos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 18px;
+        }
+
+        .logo-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(148, 163, 184, 0.12);
+            border-radius: 18px;
+            padding: 22px;
+            min-height: 120px;
+            display: grid;
+            place-items: center;
+            color: #e2e8f0;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+
+        .logo-card span {
+            display: inline-block;
+            font-size: 1rem;
+            color: #94a3b8;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+        }
+
+        @media (max-width: 720px) {
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cta-row {
+                justify-content: center;
+            }
+        }
+    </style>
 
         h1 {
             font-size: 4rem;
@@ -69,26 +203,52 @@
 </head>
 <body>
 
-<section class="hero">
-    <h1>QLS Pay</h1>
+<div class="page">
+    <header class="top-bar">
+        <a class="brand-logo" href="#">
+            <div class="mark">Q</div>
+            <div>
+                <div>QLS Pay</div>
+                <div style="font-size:0.85rem; color:#94a3b8;">Partner-focused payments</div>
+            </div>
+        </a>
 
-    <p>
-        Payment processing solutions for Canadian businesses.
-        Get a free rate review and see if we can save you money.
-    </p>
+        <a class="btn" href="mailto:info@qlspay.ca">Contact Us</a>
+    </header>
 
-    <a class="btn" href="mailto:info@qlspay.ca">
-        Get a Free Rate Review
-    </a>
-
-    <div class="partners">
-        <h2>Our Partners</h2>
-
-        <div class="logos">
-            <div>Nuvei</div>
+    <section class="hero">
+        <div>
+            <h1>Payment partnerships that fit your business.</h1>
+            <p>
+                QLS Pay works with leading POS partners to deliver payment processing solutions built around what works best for your business.
+                From Clover to Moneris and Global, we help you choose the right path and keep execution simple.
+            </p>
         </div>
-    </div>
-</section>
+
+        <div class="partner-panel">
+            <h2>We partner with the best</h2>
+            <p>
+                We connect you with proven POS and payments platforms so you can move forward with confidence.
+                Our focus is on finding the right solution for your business, not just a one-size-fits-all service.
+            </p>
+
+            <div class="logos">
+                <div class="logo-card">
+                    <strong>Clover</strong>
+                    <span>Modern POS</span>
+                </div>
+                <div class="logo-card">
+                    <strong>Moneris</strong>
+                    <span>Trusted provider</span>
+                </div>
+                <div class="logo-card">
+                    <strong>Global</strong>
+                    <span>Wide coverage</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
 </body>
 </html>
