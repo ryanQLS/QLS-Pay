@@ -1,91 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QLS Pay</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script src="https://cdn.tailwindcss.com"></script>
+<title>QLS Pay</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <style>
-    body {
-      font-family: Inter, sans-serif;
-      background:
-        radial-gradient(circle at 78% 30%, rgba(255, 218, 246, 0.95), transparent 34%),
-        radial-gradient(circle at 80% 82%, rgba(207, 222, 255, 0.9), transparent 34%),
-        #fbfdff;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    .accent {
-      background: linear-gradient(90deg, #f36aa6, #b36cff, #4f7cff);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-  </style>
+<style>
+body{
+    font-family:Inter,sans-serif;
+}
+</style>
+
 </head>
+<body class="bg-white text-slate-900">
 
-<body class="min-h-screen overflow-hidden text-[#111827]">
+<!-- NAV -->
 
-  <main class="relative mx-auto min-h-screen max-w-[1230px] px-[68px] pt-[28px]">
+<header class="border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
 
-    <header class="flex items-start gap-[88px]">
-      <img src="assets/qls-logo-black.png" alt="QLS Pay" class="h-[92px] w-auto">
+        <img
+            src="assets/qls-logo.png"
+            alt="QLS Pay"
+            class="h-16 w-auto"
+        >
 
-      <nav class="mt-[42px] flex gap-[36px] text-[13px] font-medium text-slate-900">
-        <a href="#">Overview</a>
-        <a href="#">Features</a>
-        <a href="#">Pricing</a>
-        <a href="#">About</a>
-      </nav>
-    </header>
+        <a
+            href="mailto:info@qlspay.com"
+            class="px-6 py-3 rounded-full bg-slate-900 text-white font-semibold hover:bg-slate-800 transition"
+        >
+            Contact Us
+        </a>
 
-    <section class="relative z-20 mt-[88px] w-[470px]">
-      <h1 class="text-[66px] font-black leading-[0.98] tracking-[-0.07em] text-[#151922]">
-        Payment<br>
-        solutions
-      </h1>
+    </div>
+</header>
 
-      <h2 class="mt-[24px] text-[29px] font-black tracking-[-0.055em]">
-        that <span class="accent">move business forward.</span>
-      </h2>
+<!-- HERO -->
 
-      <p class="mt-[26px] max-w-[455px] text-[18px] font-medium leading-[1.55] tracking-[-0.04em] text-[#34445f]">
-        QLS Pay connects merchants with trusted POS and payment partners to simplify transactions and help your business grow.
-      </p>
+<section class="py-32">
 
-      <a href="mailto:info@qlspay.com"
-         class="mt-[36px] inline-flex h-[56px] w-[182px] items-center justify-center gap-[26px] rounded-[15px] bg-[#101827] text-[17px] font-bold text-white shadow-xl shadow-slate-900/20">
-        Get Started
-        <span class="text-[25px] font-medium">→</span>
-      </a>
-    </section>
+    <div class="max-w-5xl mx-auto px-6 text-center">
 
-    <img
-      src="assets/pos-hero.png"
-      alt="QLS Pay POS devices"
-      class="absolute right-[10px] top-[140px] z-10 w-[660px] max-w-none"
-    >
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight">
+            Payment Solutions
+            <br>
+            Built For Growth
+        </h1>
 
-    <section class="absolute bottom-[28px] left-[68px] right-[68px]">
-      <div class="flex items-center gap-[36px]">
-        <div class="h-px flex-1 bg-slate-200"></div>
-        <p class="text-[13px] font-bold uppercase tracking-[0.55em] text-slate-400">
-          Trusted Partners
+        <p class="mt-8 text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            QLS Pay helps merchants find the right payment processing
+            and POS solutions through trusted industry partners.
         </p>
-        <div class="h-px flex-1 bg-slate-200"></div>
-      </div>
 
-      <div class="mt-[24px] flex items-center justify-center gap-[60px]">
-        <img src="assets/clover-logo.png" alt="Clover" class="h-[50px] w-auto">
-        <div class="h-[42px] w-px bg-slate-300"></div>
-        <img src="assets/moneris-logo.png" alt="Moneris" class="h-[50px] w-auto">
-      </div>
-    </section>
+        <a
+            href="mailto:info@qlspay.com"
+            class="inline-block mt-10 px-8 py-4 bg-slate-900 text-white rounded-xl font-semibold"
+        >
+            Get Started
+        </a>
 
-  </main>
+    </div>
+
+</section>
+
+<!-- PARTNERS -->
+
+<section class="pb-28">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+        <div class="flex items-center gap-6 mb-14">
+
+            <div class="h-px bg-slate-200 flex-1"></div>
+
+            <span class="text-sm uppercase tracking-[0.35em] text-slate-400 font-semibold">
+                Trusted Partners
+            </span>
+
+            <div class="h-px bg-slate-200 flex-1"></div>
+
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+
+            <div class="border border-slate-200 rounded-2xl p-8 flex items-center justify-center h-32">
+                <img
+                    src="assets/clover-logo.png"
+                    alt="Clover"
+                    class="max-h-12 object-contain"
+                >
+            </div>
+
+            <div class="border border-slate-200 rounded-2xl p-8 flex items-center justify-center h-32">
+                <img
+                    src="assets/moneris-logo.png"
+                    alt="Moneris"
+                    class="max-h-12 object-contain"
+                >
+            </div>
+
+            <div class="border border-slate-200 rounded-2xl p-8 flex items-center justify-center h-32">
+                <img
+                    src="assets/nuvei-logo.png"
+                    alt="Nuvei"
+                    class="max-h-12 object-contain"
+                >
+            </div>
+
+            <div class="border border-slate-200 rounded-2xl p-8 flex items-center justify-center h-32">
+                <img
+                    src="assets/global-logo.png"
+                    alt="Global Payments"
+                    class="max-h-12 object-contain"
+                >
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="bg-slate-50 py-24">
+
+    <div class="max-w-4xl mx-auto px-6 text-center">
+
+        <h2 class="text-4xl font-bold">
+            Why QLS Pay?
+        </h2>
+
+        <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+            We connect businesses with reliable payment providers,
+            modern POS systems, and merchant solutions designed to
+            simplify transactions and support long-term growth.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="border-t border-slate-100 py-8">
+
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-4 text-sm text-slate-500">
+
+        <p>© 2025 QLS Pay</p>
+
+        <p>Trusted payment & POS solutions.</p>
+
+    </div>
+
+</footer>
 
 </body>
 </html>
