@@ -4,134 +4,159 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QLS Pay</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Manrope", sans-serif;
     }
 
-    .logo-gradient {
-      background: linear-gradient(90deg, #ff2f5f, #db2fc9, #6b4cff, #2f8cff);
+    .soft-bg {
+      background:
+        radial-gradient(circle at 78% 32%, rgba(250, 207, 240, 0.7), transparent 28%),
+        radial-gradient(circle at 83% 80%, rgba(190, 207, 255, 0.55), transparent 32%),
+        linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    }
+
+    .text-accent {
+      background: linear-gradient(90deg, #f26aa0, #c86ff2, #4f7df3);
       -webkit-background-clip: text;
       color: transparent;
     }
 
-    .pay-text {
-      letter-spacing: 18px;
-      color: rgba(15, 23, 42, 0.08);
+    .pos-shadow {
+      filter: drop-shadow(0 35px 45px rgba(70, 82, 120, 0.18));
     }
   </style>
 </head>
 
-<body class="bg-white text-slate-950 overflow-x-hidden">
+<body class="soft-bg min-h-screen overflow-x-hidden text-[#111827]">
 
-  <header class="absolute top-0 left-0 z-20 w-full">
-    <div class="mx-auto flex h-28 max-w-7xl items-center justify-between px-8">
+  <header class="mx-auto flex h-28 max-w-[1440px] items-center px-12">
+    <a href="#" class="mr-28">
+      <img src="assets/qls-logo-black.png" alt="QLS Pay" class="h-28 w-auto">
+    </a>
 
-      <a href="#" class="leading-none">
-        <div class="text-7xl font-black logo-gradient tracking-[-0.08em]">
-          QLS
-        </div>
-        <div class="pay-text pl-10 text-xl font-bold">
-          PAY
-        </div>
-      </a>
-
-      <nav class="hidden gap-16 text-lg font-semibold text-slate-900 md:flex">
-        <a href="#">Overview</a>
-        <a href="#partners">Partners</a>
-        <a href="#about">About</a>
-      </nav>
-
-      <a href="mailto:info@qlspay.com" class="rounded-full bg-slate-950 px-8 py-4 font-bold text-white">
-        Get Started
-      </a>
-
-    </div>
+    <nav class="hidden items-center gap-12 text-[16px] font-medium text-slate-900 md:flex">
+      <a href="#">Overview</a>
+      <a href="#">Features</a>
+      <a href="#">Pricing</a>
+      <a href="#">About</a>
+    </nav>
   </header>
 
-  <main class="relative min-h-screen">
+  <main class="mx-auto max-w-[1440px] px-12">
 
-    <div class="absolute right-0 top-20 h-[720px] w-[720px] rounded-full bg-pink-200/40 blur-[130px]"></div>
-    <div class="absolute bottom-0 right-40 h-[620px] w-[620px] rounded-full bg-blue-200/50 blur-[120px]"></div>
+    <section class="grid min-h-[690px] grid-cols-1 items-center gap-10 lg:grid-cols-[0.85fr_1.15fr]">
 
-    <section class="relative z-10 mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-center gap-10 px-8 pt-32 lg:grid-cols-2">
-
-      <div>
-        <h1 class="max-w-2xl text-6xl font-black leading-[0.95] tracking-[-0.06em] md:text-8xl">
-          Powering businesses
-          <span class="logo-gradient">
-            with better payments.
-          </span>
+      <div class="pt-8">
+        <h1 class="max-w-[540px] text-[84px] font-extrabold leading-[0.96] tracking-[-0.065em] text-[#151922]">
+          Payment<br>
+          solutions
         </h1>
 
-        <p class="mt-8 max-w-xl text-xl leading-8 text-slate-500">
-          QLS Pay connects merchants with trusted POS and payment partners to simplify payments and help businesses grow.
+        <h2 class="mt-6 text-[34px] font-extrabold leading-tight tracking-[-0.04em]">
+          that <span class="text-accent">move business forward.</span>
+        </h2>
+
+        <p class="mt-8 max-w-[510px] text-[22px] leading-[1.55] tracking-[-0.03em] text-slate-600">
+          QLS Pay connects merchants with trusted POS and payment partners to simplify transactions and help your business grow.
         </p>
 
-        <div class="mt-10 flex items-center gap-8">
-          <a href="mailto:info@qlspay.com" class="rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 px-9 py-5 text-lg font-bold text-white">
-            Get Started →
-          </a>
-
-          <a href="#partners" class="text-lg font-bold text-slate-900">
-            Learn More →
-          </a>
-        </div>
-
-        <div id="partners" class="mt-16">
-          <p class="mb-5 text-sm font-bold uppercase tracking-[0.22em] text-slate-500">
-            Trusted Partners
-          </p>
-
-          <div class="flex items-center gap-10">
-            <img src="assets/clover-logo.png" alt="Clover" class="h-12 w-auto" />
-            <div class="h-10 w-px bg-slate-300"></div>
-            <img src="assets/moneris-logo.png" alt="Moneris" class="h-12 w-auto" />
-          </div>
-        </div>
+        <a
+          href="mailto:info@qlspay.com"
+          class="mt-10 inline-flex items-center gap-8 rounded-[18px] bg-[#111827] px-8 py-5 text-[21px] font-semibold text-white shadow-xl shadow-slate-900/10"
+        >
+          Get Started
+          <span class="text-3xl leading-none">→</span>
+        </a>
       </div>
 
-      <div class="relative hidden h-[720px] lg:block">
+      <div class="relative hidden h-[650px] lg:block">
 
-        <div class="absolute left-8 top-20 h-[390px] w-[310px] rotate-[-8deg] rounded-[2rem] bg-white p-5 shadow-2xl">
-          <div class="h-full rounded-[1.5rem] border-[14px] border-slate-800 bg-white p-6">
-            <div class="mb-16 text-sm font-bold text-green-600">clover</div>
-            <div class="text-center text-4xl font-semibold">$52.53</div>
-            <p class="mt-3 text-center text-sm text-slate-500">Insert, Tap, or Swipe</p>
-            <div class="mx-auto mt-10 h-16 w-24 rounded-xl border border-slate-200"></div>
+        <!-- POS Terminal -->
+        <div class="pos-shadow absolute left-[120px] top-[70px] h-[350px] w-[330px] -rotate-[7deg] rounded-[28px] bg-[#f7f8fb] p-5">
+          <div class="h-full rounded-[20px] border-[14px] border-[#151922] bg-white px-8 py-12">
+            <img src="assets/qls-logo-black.png" alt="QLS Pay" class="mx-auto h-20 w-auto">
+            <div class="mx-auto mt-16 flex h-14 w-14 items-center justify-center rounded-full border border-slate-400 text-2xl">
+              ))) 
+            </div>
           </div>
         </div>
 
-        <div class="absolute left-0 top-[410px] h-24 w-72 rounded-3xl bg-slate-100 shadow-xl"></div>
+        <div class="pos-shadow absolute left-[165px] top-[360px] h-[145px] w-[350px] rounded-[22px] bg-[#f2f3f6]">
+          <div class="absolute right-8 top-12 h-3 w-44 rounded-full bg-[#1f2937]"></div>
+        </div>
 
-        <div class="absolute right-0 top-28 h-[520px] w-[260px] rotate-[10deg] rounded-[2rem] bg-white p-5 shadow-2xl">
-          <div class="h-full rounded-[1.4rem] border border-slate-200 bg-white p-5">
-            <div class="mb-10 text-center text-sm font-bold text-cyan-700">moneris</div>
+        <!-- Gradient Card -->
+        <div class="pos-shadow absolute left-[20px] top-[440px] z-20 h-[190px] w-[330px] rounded-[18px] bg-gradient-to-br from-pink-400 via-fuchsia-500 to-blue-500 p-7 text-white">
+          <div class="flex justify-between">
+            <div class="h-9 w-12 rounded-lg bg-white/85"></div>
+            <div class="text-3xl">)))</div>
+          </div>
 
-            <div class="rounded-xl border border-slate-300 p-5 text-center">
-              <div class="mb-8 text-3xl">)))</div>
-              <div class="text-3xl font-semibold">$52.53</div>
-              <p class="mt-2 text-xs text-slate-500">Tap, Insert or Swipe</p>
+          <div class="mt-9 flex gap-5 text-[19px] tracking-[0.18em]">
+            <span>1234</span>
+            <span>5678</span>
+            <span>9012</span>
+            <span>3456</span>
+          </div>
+
+          <div class="mt-8 flex items-end justify-between text-sm tracking-widest">
+            <span>QLS PAY</span>
+            <span>12/28</span>
+          </div>
+        </div>
+
+        <!-- Handheld POS -->
+        <div class="pos-shadow absolute right-[45px] top-[175px] h-[500px] w-[235px] rotate-[7deg] rounded-[34px] bg-[#f8f9fb] p-5">
+          <div class="h-full rounded-[22px] border border-slate-200 bg-white p-4">
+            <div class="h-[205px] rounded-xl border border-slate-300 p-7">
+              <img src="assets/qls-logo-black.png" alt="QLS Pay" class="mx-auto mt-4 h-16 w-auto">
+              <div class="mx-auto mt-9 flex h-11 w-11 items-center justify-center rounded-full border border-slate-400 text-xl">
+                )))
+              </div>
             </div>
 
-            <div class="mt-6 grid grid-cols-3 gap-3">
-              <button class="rounded-lg bg-slate-100 py-2">1</button>
-              <button class="rounded-lg bg-slate-100 py-2">2</button>
-              <button class="rounded-lg bg-slate-100 py-2">3</button>
-              <button class="rounded-lg bg-slate-100 py-2">4</button>
-              <button class="rounded-lg bg-slate-100 py-2">5</button>
-              <button class="rounded-lg bg-slate-100 py-2">6</button>
+            <div class="mt-5 grid grid-cols-3 gap-3 text-center text-sm font-semibold">
+              <button class="rounded-lg border border-slate-200 bg-white py-2">1</button>
+              <button class="rounded-lg border border-slate-200 bg-white py-2">2</button>
+              <button class="rounded-lg border border-slate-200 bg-white py-2">3</button>
+              <button class="rounded-lg border border-slate-200 bg-white py-2">4</button>
+              <button class="rounded-lg border border-slate-200 bg-white py-2">5</button>
+              <button class="rounded-lg border border-slate-200 bg-white py-2">6</button>
+              <button class="rounded-lg border border-slate-200 bg-white py-2">7</button>
+              <button class="rounded-lg border border-slate-200 bg-white py-2">8</button>
+              <button class="rounded-lg border border-slate-200 bg-white py-2">9</button>
               <button class="rounded-lg bg-red-500 py-2 text-white">×</button>
-              <button class="rounded-lg bg-yellow-100 py-2">←</button>
+              <button class="rounded-lg bg-yellow-300 py-2">←</button>
               <button class="rounded-lg bg-green-500 py-2 text-white">✓</button>
             </div>
           </div>
         </div>
 
+        <div class="absolute bottom-[18px] left-[165px] h-16 w-[520px] rounded-full bg-blue-300/25 blur-3xl"></div>
+      </div>
+    </section>
+
+    <section class="pb-10">
+      <div class="flex items-center gap-10">
+        <div class="h-px flex-1 bg-slate-200"></div>
+        <p class="text-sm font-semibold uppercase tracking-[0.45em] text-slate-400">
+          Trusted Partners
+        </p>
+        <div class="h-px flex-1 bg-slate-200"></div>
       </div>
 
+      <div class="mt-7 flex items-center justify-center gap-16">
+        <img src="assets/clover-logo.png" alt="Clover" class="h-14 w-auto">
+        <div class="h-12 w-px bg-slate-300"></div>
+        <img src="assets/moneris-logo.png" alt="Moneris" class="h-14 w-auto">
+      </div>
     </section>
 
   </main>
