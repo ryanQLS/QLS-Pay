@@ -7,14 +7,15 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     body {
       font-family: Inter, sans-serif;
       background:
-        radial-gradient(circle at 82% 32%, rgba(255, 220, 248, 0.9), transparent 32%),
-        radial-gradient(circle at 82% 82%, rgba(205, 220, 255, 0.85), transparent 32%),
+        radial-gradient(circle at 78% 30%, rgba(255, 218, 246, 0.95), transparent 34%),
+        radial-gradient(circle at 80% 82%, rgba(207, 222, 255, 0.9), transparent 34%),
         #fbfdff;
     }
 
@@ -23,10 +24,6 @@
       -webkit-background-clip: text;
       color: transparent;
     }
-
-    .shadow-device {
-      filter: drop-shadow(0 28px 32px rgba(45, 60, 100, 0.18));
-    }
   </style>
 </head>
 
@@ -34,7 +31,6 @@
 
   <main class="relative mx-auto min-h-screen max-w-[1230px] px-[68px] pt-[28px]">
 
-    <!-- Header -->
     <header class="flex items-start gap-[88px]">
       <img src="assets/qls-logo-black.png" alt="QLS Pay" class="h-[92px] w-auto">
 
@@ -46,7 +42,6 @@
       </nav>
     </header>
 
-    <!-- Text -->
     <section class="relative z-20 mt-[88px] w-[470px]">
       <h1 class="text-[66px] font-black leading-[0.98] tracking-[-0.07em] text-[#151922]">
         Payment<br>
@@ -68,71 +63,12 @@
       </a>
     </section>
 
-    <!-- Register Screen -->
-    <div class="shadow-device absolute left-[690px] top-[158px] h-[300px] w-[260px] rotate-[-7deg] rounded-[22px] bg-[#f7f9fc] p-[13px]">
-      <div class="h-full rounded-[15px] border-[12px] border-[#161b25] bg-white">
-        <img src="assets/qls-logo-black.png" alt="QLS Pay" class="mx-auto mt-[74px] h-[72px] w-auto">
+    <img
+      src="assets/pos-hero.png"
+      alt="QLS Pay POS devices"
+      class="absolute right-[10px] top-[140px] z-10 w-[660px] max-w-none"
+    >
 
-        <div class="mx-auto mt-[28px] flex h-[42px] w-[42px] items-center justify-center rounded-full border border-slate-400 text-[22px]">
-          )))
-        </div>
-      </div>
-    </div>
-
-    <!-- Register Base -->
-    <div class="shadow-device absolute left-[650px] top-[420px] h-[120px] w-[300px] rounded-t-[18px] rounded-b-[10px] bg-gradient-to-b from-[#f7f8fb] to-[#e8ecf3]">
-      <div class="absolute right-[32px] top-[58px] h-[8px] w-[132px] rounded-full bg-[#151b28]"></div>
-    </div>
-
-    <!-- Gradient Card -->
-    <div class="shadow-device absolute left-[535px] top-[497px] z-30 h-[174px] w-[250px] rounded-[12px] bg-gradient-to-br from-[#ff7ca7] via-[#c846ed] to-[#477cff] p-[24px] text-white">
-      <div class="flex justify-between">
-        <div class="h-[28px] w-[41px] rounded-[7px] bg-white/85"></div>
-        <div class="text-[28px] leading-none">)))</div>
-      </div>
-
-      <div class="mt-[36px] flex justify-between text-[15px] font-semibold tracking-[0.18em]">
-        <span>1234</span>
-        <span>5678</span>
-        <span>9012</span>
-        <span>3456</span>
-      </div>
-
-      <div class="mt-[29px] flex justify-between text-[12px] font-semibold">
-        <span>QLS PAY</span>
-        <span>12/28</span>
-      </div>
-    </div>
-
-    <!-- Handheld POS -->
-    <div class="shadow-device absolute right-[60px] top-[280px] h-[390px] w-[188px] rotate-[7deg] rounded-[26px] bg-[#f8fbff] p-[16px]">
-      <div class="h-full rounded-[18px] border border-slate-200 bg-white p-[13px]">
-        <div class="h-[172px] rounded-[10px] border border-slate-300">
-          <img src="assets/qls-logo-black.png" alt="QLS Pay" class="mx-auto mt-[48px] h-[56px] w-auto">
-
-          <div class="mx-auto mt-[18px] flex h-[36px] w-[36px] items-center justify-center rounded-full border border-slate-400 text-[18px]">
-            )))
-          </div>
-        </div>
-
-        <div class="mt-[14px] grid grid-cols-3 gap-[8px] text-[11px] font-bold">
-          <button class="h-[30px] rounded-[7px] border border-slate-200 bg-white">1</button>
-          <button class="h-[30px] rounded-[7px] border border-slate-200 bg-white">2</button>
-          <button class="h-[30px] rounded-[7px] border border-slate-200 bg-white">3</button>
-          <button class="h-[30px] rounded-[7px] border border-slate-200 bg-white">4</button>
-          <button class="h-[30px] rounded-[7px] border border-slate-200 bg-white">5</button>
-          <button class="h-[30px] rounded-[7px] border border-slate-200 bg-white">6</button>
-          <button class="h-[30px] rounded-[7px] border border-slate-200 bg-white">7</button>
-          <button class="h-[30px] rounded-[7px] border border-slate-200 bg-white">8</button>
-          <button class="h-[30px] rounded-[7px] border border-slate-200 bg-white">9</button>
-          <button class="h-[30px] rounded-[7px] bg-red-500 text-white">×</button>
-          <button class="h-[30px] rounded-[7px] bg-yellow-300">←</button>
-          <button class="h-[30px] rounded-[7px] bg-green-500 text-white">✓</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Partners -->
     <section class="absolute bottom-[28px] left-[68px] right-[68px]">
       <div class="flex items-center gap-[36px]">
         <div class="h-px flex-1 bg-slate-200"></div>
