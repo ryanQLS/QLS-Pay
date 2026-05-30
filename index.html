@@ -1,79 +1,62 @@
-<section class="relative overflow-hidden bg-white">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QLS Pay</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Background Glow -->
-  <div class="absolute inset-0 -z-10">
-    <div class="absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-pink-300/30 blur-[120px]"></div>
-    <div class="absolute bottom-0 left-1/2 h-[400px] w-[400px] rounded-full bg-blue-300/30 blur-[120px]"></div>
-  </div>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <div class="max-w-7xl mx-auto px-6 py-28">
+  <style>
+    body {
+      font-family: Inter, sans-serif;
+      background:
+        linear-gradient(135deg, #ffffff 0%, #f8fbff 42%, #f3f0ff 100%);
+    }
 
-    <!-- Logo -->
-    <div class="flex justify-center">
-      <img
-        src="assets/qls-logo.png"
-        alt="QLS Pay"
-        class="h-28 md:h-36 w-auto"
-      >
+    .text-gradient {
+      background: linear-gradient(90deg, #ec4899, #8b5cf6, #2563eb);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen text-slate-950">
+
+  <header class="mx-auto flex max-w-7xl items-center justify-between px-6 py-8">
+    <img src="assets/qls-logo.png" alt="QLS Pay" class="h-20 w-auto">
+
+    <a href="mailto:info@qlspay.com"
+       class="rounded-xl bg-slate-950 px-6 py-3 font-semibold text-white hover:bg-slate-800">
+      Contact
+    </a>
+  </header>
+
+  <main>
+
+<section class="mt-24">
+
+  <h2 class="text-center text-sm font-bold uppercase tracking-[0.35em] text-slate-400">
+    Trusted Partners
+  </h2>
+
+  <div class="mt-10 flex justify-center gap-8">
+
+    <div class="flex h-32 w-64 items-center justify-center rounded-3xl border border-slate-200 bg-white shadow-sm">
+      <img src="assets/clover-logo.png" class="max-h-12">
     </div>
 
-    <!-- Hero -->
-    <div class="text-center mt-12">
-
-      <span class="inline-flex rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 bg-white">
-        Trusted Payment Solutions
-      </span>
-
-      <h1 class="mt-8 text-6xl md:text-8xl font-black tracking-tight text-slate-900">
-        Payments
-        <span class="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
-          Made Simple
-        </span>
-      </h1>
-
-      <p class="mt-8 max-w-2xl mx-auto text-xl text-slate-600 leading-relaxed">
-        QLS Pay connects businesses with trusted payment processing and
-        POS solutions through industry-leading partners.
-      </p>
-
-      <a
-        href="mailto:info@qlspay.com"
-        class="inline-flex mt-10 rounded-2xl bg-slate-900 px-8 py-4 text-white font-semibold shadow-xl hover:bg-slate-800"
-      >
-        Get Started
-      </a>
-
-    </div>
-
-    <!-- Partners -->
-    <div class="mt-24">
-
-      <p class="text-center uppercase tracking-[0.35em] text-slate-400 text-sm font-semibold">
-        Trusted Partners
-      </p>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
-
-        <div class="rounded-3xl border border-white bg-white/80 backdrop-blur-lg shadow-lg p-8 h-32 flex items-center justify-center">
-          <img src="assets/clover-logo.png" class="max-h-12">
-        </div>
-
-        <div class="rounded-3xl border border-white bg-white/80 backdrop-blur-lg shadow-lg p-8 h-32 flex items-center justify-center">
-          <img src="assets/moneris-logo.png" class="max-h-12">
-        </div>
-
-        <div class="rounded-3xl border border-white bg-white/80 backdrop-blur-lg shadow-lg p-8 h-32 flex items-center justify-center">
-          <img src="assets/nuvei-logo.png" class="max-h-12">
-        </div>
-
-        <div class="rounded-3xl border border-white bg-white/80 backdrop-blur-lg shadow-lg p-8 h-32 flex items-center justify-center">
-          <img src="assets/global-logo.png" class="max-h-12">
-        </div>
-
-      </div>
-
+    <div class="flex h-32 w-64 items-center justify-center rounded-3xl border border-slate-200 bg-white shadow-sm">
+      <img src="assets/moneris-logo.png" class="max-h-12">
     </div>
 
   </div>
 
 </section>
+
+  </main>
+
+</body>
+</html>
