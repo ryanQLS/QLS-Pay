@@ -4,526 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QLS Pay</title>
-
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-
-        #how,
-        #why,
-        #partners,
-        #audit {
-            scroll-margin-top: 100px;
-        }
-    body {
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      background: #06101f;
-      color: #f7f9ff;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(79, 70, 229, .35), transparent 32%),
-        radial-gradient(circle at 85% 10%, rgba(234, 179, 8, .22), transparent 28%),
-        radial-gradient(circle at 55% 85%, rgba(147, 51, 234, .28), transparent 35%),
-        linear-gradient(180deg, #06101f, #07111f 55%, #12082e);
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background-image:
-        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-      background-size: 64px 64px;
-      mask-image: linear-gradient(to bottom, black, transparent 85%);
-    }
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      height: 78px;
-      padding: 0 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(6, 16, 31, .78);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-
-    .logo {
-      font-size: 20px;
-      font-weight: 950;
-      letter-spacing: -1px;
-    }
-
-    .logo span { color: #f4c400; }
-
-    .links {
-      display: flex;
-      gap: 42px;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .links a {
-      color: rgba(255,255,255,.62);
-      font-size: 14px;
-      font-weight: 800;
-      transition: .25s ease;
-    }
-
-    .links a:hover {
-      color: #fff;
-      text-shadow: 0 0 18px rgba(244,196,0,.45);
-    }
-
-    .navCta {
-      color: #f4c400;
-      font-size: 14px;
-      font-weight: 900;
-      border-bottom: 1px solid #f4c400;
-      padding-bottom: 6px;
-      transition: .25s ease;
-    }
-
-    .navCta:hover {
-      color: #06101f;
-      background: #f4c400;
-      padding: 12px 18px;
-      border-radius: 999px;
-      box-shadow: 0 0 35px rgba(244,196,0,.45);
-    }
-
-    section {
-      padding-left: 48px;
-      padding-right: 48px;
-    }
-
-    .hero {
-      min-height: calc(100vh - 78px);
-      display: flex;
-      align-items: center;
-      position: relative;
-    }
-
-    .heroInner {
-      max-width: 1040px;
-      animation: fadeUp .9s ease both;
-    }
-
-    .eyebrow,
-    .label {
-      color: #f4c400;
-      letter-spacing: 6px;
-      font-size: 11px;
-      font-weight: 900;
-      margin-bottom: 34px;
-    }
-
-    h1 {
-      max-width: 1040px;
-      font-size: clamp(58px, 9vw, 118px);
-      letter-spacing: -1px;
-      font-weight: 950;
-    }
-
-    h1 em,
-    h2 em {
-      color: #f4c400;
-      font-style: italic;
-      font-weight: 400;
-    }
-
-    .sub {
-      max-width: 720px;
-      margin-top: 38px;
-      color: #aeb9c9;
-      font-size: 22px;
-      line-height: 1.5;
-    }
-
-    .heroActions {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      margin-top: 46px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 58px;
-      padding: 0 34px;
-      background: #f4c400;
-      color: #06101f;
-      font-weight: 950;
-      transition: .25s ease;
-      border: 1px solid #f4c400;
-    }
-
-    .btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 22px 50px rgba(244,196,0,.32);
-      background: #ffe35a;
-    }
-
-    .ghostBtn {
-      color: #bdc8d8;
-      font-weight: 900;
-      padding: 18px 22px;
-      transition: .25s ease;
-      border-radius: 999px;
-    }
-
-    .ghostBtn:hover {
-      color: #fff;
-      background: rgba(255,255,255,.08);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.1);
-    }
-
-    .orb {
-      position: absolute;
-      right: 7%;
-      top: 23%;
-      width: 360px;
-      height: 360px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), transparent 18%),
-        linear-gradient(135deg, rgba(244,196,0,.16), rgba(79,70,229,.18));
-      border: 1px solid rgba(255,255,255,.08);
-      filter: blur(.2px);
-      animation: float 6s ease-in-out infinite;
-      opacity: .75;
-    }
-
-    .orb::after {
-      content: "";
-      position: absolute;
-      inset: 52px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,.13);
-    }
-
-    .compare {
-      min-height: 92px;
-      display: grid;
-      grid-template-columns: 1fr repeat(6, 1.35fr);
-      align-items: center;
-      gap: 20px;
-      background: rgba(6, 16, 31, .9);
-      border-top: 1px solid rgba(255,255,255,.1);
-      border-bottom: 1px solid rgba(255,255,255,.1);
-    }
-
-    .compare span {
-      color: #9ec8ff;
-      letter-spacing: 7px;
-      font-size: 10px;
-      font-weight: 900;
-    }
-
-    .compare b {
-      text-align: center;
-      color: rgba(255,255,255,.56);
-      font-size: 20px;
-      transition: .25s ease;
-    }
-
-    .compare b:hover {
-      color: #fff;
-      transform: translateY(-3px);
-    }
-
-    .how,
-    .why {
-      background: #06101f;
-      padding-top: 120px;
-      padding-bottom: 120px;
-    }
-
-    h2 {
-      font-size: clamp(48px, 6vw, 78px);
-      line-height: 1.02;
-      letter-spacing: -4px;
-      font-weight: 950;
-    }
-
-    .sectionHead {
-      display: grid;
-      grid-template-columns: .65fr 1.35fr;
-      gap: 60px;
-      align-items: start;
-    }
-
-    .steps {
-      margin-top: 78px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border: 1px solid rgba(255,255,255,.1);
-      background: rgba(255,255,255,.015);
-    }
-
-    .step {
-      padding: 44px 40px;
-      min-height: 280px;
-      border-right: 1px solid rgba(255,255,255,.1);
-      transition: .3s ease;
-    }
-
-    .step:last-child { border-right: none; }
-
-    .step:hover,
-    .card:hover {
-      background: rgba(255,255,255,.045);
-      transform: translateY(-6px);
-      box-shadow: 0 28px 80px rgba(0,0,0,.25);
-    }
-
-    .num {
-      color: #f4c400;
-      font-weight: 950;
-      letter-spacing: 2px;
-      font-size: 14px;
-    }
-
-    h3 {
-      margin-top: 34px;
-      font-size: 24px;
-      line-height: 1.1;
-    }
-
-    .step p,
-    .card p {
-      margin-top: 20px;
-      color: #a9c7e8;
-      font-size: 16px;
-      line-height: 1.55;
-      max-width: 360px;
-    }
-
-    .whyTitle {
-      max-width: 820px;
-      margin-left: auto;
-    }
-
-    .grid {
-      margin-top: 78px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border: 1px solid rgba(255,255,255,.1);
-    }
-
-    .card {
-      min-height: 178px;
-      padding: 38px 32px;
-      border-right: 1px solid rgba(255,255,255,.1);
-      border-bottom: 1px solid rgba(255,255,255,.1);
-      transition: .3s ease;
-    }
-
-    .card:nth-child(3),
-    .card:nth-child(6) { border-right: none; }
-
-    .card:nth-child(n+4) { border-bottom: none; }
-
-    .card h3 {
-      margin-top: 0;
-      font-size: 20px;
-    }
-
-    .audit {
-      min-height: 670px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      border-top: 1px solid rgba(255,255,255,.08);
-    }
-
-    .audit::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(79,70,229,.5), transparent 33%),
-        radial-gradient(circle at 85% 35%, rgba(244,196,0,.28), transparent 32%),
-        linear-gradient(180deg, rgba(6,16,31,.7), #160837);
-      z-index: 0;
-    }
-
-    .auditInner {
-      position: relative;
-      z-index: 1;
-      max-width: 760px;
-    }
-
-    .audit p {
-      margin: 32px auto 0;
-      max-width: 620px;
-      color: #b7d5f0;
-      font-size: 20px;
-      line-height: 1.5;
-    }
-
-    .form {
-      margin: 48px auto 0;
-      display: flex;
-      max-width: 620px;
-      gap: 12px;
-    }
-
-    .form input {
-      flex: 1;
-      height: 60px;
-      background: rgba(255,255,255,.045);
-      border: 1px solid rgba(255,255,255,.14);
-      color: #fff;
-      padding: 0 18px;
-      font-size: 16px;
-      outline: none;
-      transition: .25s ease;
-    }
-
-    .form input:focus {
-      border-color: #f4c400;
-      box-shadow: 0 0 0 4px rgba(244,196,0,.12);
-    }
-
-    .form button {
-      height: 60px;
-      background: #f4c400;
-      border: 1px solid #f4c400;
-      color: #06101f;
-      padding: 0 32px;
-      font-weight: 950;
-      cursor: pointer;
-      transition: .25s ease;
-    }
-
-    .form button:hover {
-      background: #ffe35a;
-      transform: translateY(-4px);
-      box-shadow: 0 22px 50px rgba(244,196,0,.35);
-    }
-
-    .small {
-      margin-top: 26px;
-      color: #a9c7e8;
-      letter-spacing: 5px;
-      font-size: 11px;
-    }
-
-    footer {
-      min-height: 104px;
-      padding: 0 48px;
-      background: #06101f;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: #a9c7e8;
-      font-size: 11px;
-      letter-spacing: 4px;
-      border-top: 1px solid rgba(255,255,255,.08);
-    }
-
-    footer a {
-      margin-left: 24px;
-      transition: .25s ease;
-    }
-
-    footer a:hover { color: #f4c400; }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(36px);
-      transition: .8s ease;
-    }
-
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-24px) rotate(8deg); }
-    }
-
-    @media (max-width: 900px) {
-      .nav,
-      section,
-      footer {
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-
-      .links { display: none; }
-
-      h1 {
-        letter-spacing: -3px;
-      }
-
-      .orb { display: none; }
-
-      .compare {
-        grid-template-columns: 1fr 1fr;
-        padding-top: 28px;
-        padding-bottom: 28px;
-      }
-
-      .sectionHead,
-      .steps,
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .whyTitle {
-        margin-left: 0;
-      }
-
-      .step,
-      .card {
-        border-right: none !important;
-        border-bottom: 1px solid rgba(255,255,255,.1) !important;
-      }
-
-      .form {
-        flex-direction: column;
-      }
-
-      footer {
-        padding-top: 28px;
-        padding-bottom: 28px;
-        flex-direction: column;
-        gap: 18px;
-        text-align: center;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
@@ -546,13 +27,15 @@
       <p class="eyebrow">◆ INDEPENDENT PAYMENT ADVISORY</p>
 
       <h1>
-        Stop overpaying<br>
-        for <em>processing fees.</em>
+        Pay less for<br>
+        <em>payment processing.</em>
       </h1>
 
       <p class="sub">
-        QLS Pay audits your merchant statement, compares trusted payment providers,
-        and helps you move to a better setup with lower costs and less hassle.
+        QLS Pay reviews your current processing costs and identifies opportunities
+        to lower your fees. Because we work with multiple payment solutions, we can
+        help businesses find better pricing without the pressure of being tied to a
+        single provider.
       </p>
 
       <div class="heroActions">
@@ -563,7 +46,7 @@
   </section>
 
   <section id="partners" class="compare reveal">
-    <span>POWERED BY INDUSTRY LEADERS</span>    
+    <span>OUR PARTNERS</span>
     <b>CLOVER</b>
     <b>MONERIS</b>
     <b>NUVEI</b>
@@ -571,29 +54,50 @@
     <b>GLOBAL</b>
   </section>
 
+  <section class="savings reveal">
+    <div class="savingsLeft">
+      <p class="label">LOWER YOUR PROCESSING COSTS</p>
+
+      <h2>
+        Keep more of<br>
+        what you earn.
+      </h2>
+    </div>
+
+    <div class="savingsRight">
+      <p>
+        We compare multiple payment solutions to find you lower rates and better value — often without changing the payment machine you already have.
+      </p>
+
+      <p class="highlight">
+        One review. Multiple options. Lower costs.
+      </p>
+    </div>
+  </section>
+
   <section id="how" class="how">
     <div class="sectionHead reveal">
       <p class="label">HOW IT WORKS</p>
-      <h2>A simple, honest path<br>to lower payment costs.</h2>
+      <h2>A simple, honest path<br>to paying less.</h2>
     </div>
 
     <div class="steps reveal">
       <div class="step">
         <span class="num">01</span>
-        <h3>Audit your setup</h3>
-        <p>Send your latest merchant statement. We review your rates, fees, hardware, and contract terms.</p>
+        <h3>Review your current costs</h3>
+        <p>Send your latest merchant statement. We review your rates, fees, equipment, and contract terms.</p>
       </div>
 
       <div class="step">
         <span class="num">02</span>
-        <h3>Compare the market</h3>
-        <p>We compare providers and payment options to find a setup that actually fits your business.</p>
+        <h3>Find savings opportunities</h3>
+        <p>We identify where your business may be paying more than necessary and show potential ways to reduce processing costs.</p>
       </div>
 
       <div class="step">
         <span class="num">03</span>
-        <h3>Switch smoothly</h3>
-        <p>We help coordinate terminals, POS setup, and onboarding so your business keeps running.</p>
+        <h3>Choose what works best</h3>
+        <p>You get clear options. The goal is not to force a switch — it is to help your business pay less.</p>
       </div>
     </div>
   </section>
@@ -601,23 +105,23 @@
   <section id="why" class="why">
     <div class="reveal">
       <p class="label">WHY QLS PAY</p>
-      <h2 class="whyTitle">A partner who actually shops the market for you.</h2>
+      <h2 class="whyTitle">One advisor. Multiple payment solutions. Better pricing power.</h2>
     </div>
 
     <div class="grid reveal">
       <div class="card">
-        <h3>Lower transaction fees</h3>
+        <h3>Lower processing costs</h3>
         <p>We look for better pricing structures based on your volume, industry, and payment type.</p>
       </div>
 
       <div class="card">
-        <h3>Better devices & POS</h3>
-        <p>Modern terminals, wireless devices, and POS options matched to how your business operates.</p>
+        <h3>Multiple payment options</h3>
+        <p>Because we work with different payment solutions, you're not limited to one provider's pricing.</p>
       </div>
 
       <div class="card">
-        <h3>Honest recommendations</h3>
-        <p>We compare options and recommend what makes sense instead of pushing one provider.</p>
+        <h3>No pressure to switch</h3>
+        <p>We focus on showing where you may be able to save. The goal is paying less, not forcing change.</p>
       </div>
 
       <div class="card">
@@ -626,8 +130,8 @@
       </div>
 
       <div class="card">
-        <h3>Faster checkout</h3>
-        <p>Updated hardware can mean quicker tap-to-pay, fewer declines, and a cleaner customer experience.</p>
+        <h3>Better equipment options</h3>
+        <p>We can help you find terminals, wireless devices, and POS options that fit your business.</p>
       </div>
 
       <div class="card">
@@ -639,11 +143,11 @@
 
   <section id="audit" class="audit">
     <div class="auditInner reveal">
-      <h2>See what you could<br>be <em>saving.</em></h2>
+      <h2>See where you could<br>be <em>paying less.</em></h2>
 
       <p>
         Send your most recent merchant statement. We'll review it and show you
-        where you may be able to lower your payment processing costs.
+        where your business may be able to reduce payment processing costs.
       </p>
 
       <form class="form">
@@ -666,19 +170,7 @@
       <a href="#">CONTACT</a>
     </div>
   </footer>
+  <script src="script.js"></script>
 
-  <script>
-    const reveals = document.querySelectorAll(".reveal");
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        }
-      });
-    }, { threshold: 0.15 });
-
-    reveals.forEach((el) => observer.observe(el));
-  </script>
 </body>
 </html>
