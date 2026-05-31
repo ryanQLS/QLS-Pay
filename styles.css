@@ -241,24 +241,27 @@ body::before {
     z-index: 1;
   }
 
-  .compare {
-    min-height: 120px;
-    display: grid;
-    grid-template-columns: 1.4fr repeat(5, 1fr);
-    align-items: center;
-    gap: 20px;
-    background:
-      radial-gradient(circle at 20% 20%, rgba(0,209,255,.12), transparent 35%),
-      radial-gradient(circle at 80% 70%, rgba(20,255,202,.14), transparent 40%),
-      rgba(3, 21, 37, .72);
-    backdrop-filter: blur(16px);
-    border-top: 1px solid rgba(255,255,255,.1);
-    border-bottom: 1px solid rgba(255,255,255,.1);
-  }
+.compare {
+  min-height: 120px;
+  display: grid;
+  grid-template-columns: 1.4fr repeat(5, 1fr);
+  align-items: center;
+  gap: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e0f2fe,
+      #dbeafe
+    );
+
+  border-top: 1px solid #bfdbfe;
+  border-bottom: 1px solid #bfdbfe;
+}
 
   .compare span {
-    color: #7ee8ff;
-    letter-spacing: 5px;
+  color: #0284c7;
+   letter-spacing: 5px;
     font-size: 10px;
     font-weight: 900;
     line-height: 1.5;
@@ -266,13 +269,13 @@ body::before {
 
   .compare b {
     text-align: center;
-    color: rgba(255,255,255,.76);
-    font-size: 20px;
+  color: #334155;
+  font-weight: 700;    font-size: 20px;
     transition: .25s ease;
   }
 
   .compare b:hover {
-    color: #fff;
+  color: #0284c7;
     transform: translateY(-3px);
     text-shadow: 0 0 18px rgba(0,209,255,.35);
   }
@@ -749,11 +752,10 @@ body::before {
 }
 
 .savings h2,
-.how h2,
-.savings .highlight {
+.how h2 {
   color: #0f172a !important;
+  font-weight: 950;
 }
-
 .savingsRight p,
 .how .step p {
   color: #334155 !important;
