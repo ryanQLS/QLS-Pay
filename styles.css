@@ -278,9 +278,28 @@ body::before {
   }
 
 .compare {
-  background: #ffffff;
-  color: #0F172A;
-  border: none;
+  background:
+    linear-gradient(
+      135deg,
+      #eaf4ff,
+      #dbeafe
+    );
+
+  border-top: 1px solid #cbd5e1;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.compare span {
+  color: #0284c7;
+}
+
+.compare b {
+  color: #334155;
+  font-weight: 700;
+}
+
+.compare b:hover {
+  color: #0ea5e9;
 }
 
 .compare span {
@@ -310,11 +329,15 @@ body::before {
 }
 
 .savingsRight p {
-  color: #475569;
+  color: #334155 !important;
+  font-size: 20px;
+  line-height: 1.8;
+  font-weight: 500;
 }
-
 .highlight {
-  color: #0F172A !important;
+  color: #020617 !important;
+  font-size: 30px !important;
+  font-weight: 900;
 }
 
 
@@ -365,14 +388,7 @@ body::before {
   pointer-events: none;
 }
 
-.audit::before {
-  background:
-    linear-gradient(
-      135deg,
-      #FFFFFF,
-      #F8FAFC
-    );
-}
+
 
 .audit {
   color: #0F172A;
@@ -789,5 +805,17 @@ footer a {
 .form input::placeholder {
   color: #94a3b8;
 }  
+
+.audit h2 {
+  color: white !important;
+}
+
+.audit h2 em {
+  color: #22d3ee !important;
+}
+
+.audit p {
+  color: #cbd5e1 !important;
+}
 
 }
