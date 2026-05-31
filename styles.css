@@ -28,7 +28,6 @@ body::before {
   inset: 0;
   z-index: -4;
   background:
-    radial-gradient(circle at 20% 20%, rgba(236,72,153,.25), transparent 35%),
     radial-gradient(circle at 80% 20%, rgba(139,92,246,.25), transparent 35%),
     radial-gradient(circle at 50% 80%, rgba(59,130,246,.2), transparent 35%),
     linear-gradient(135deg, #0f172a 0%, #111827 100%);
@@ -291,11 +290,9 @@ h2 em {
   grid-template-columns: 1fr 1fr;
   gap: 100px;
   padding: 140px 48px;
-  background:
-    radial-gradient(circle at top left, rgba(59,130,246,.12), transparent 40%),
-    linear-gradient(135deg, #f8fafc, #eef6ff);
+  background: linear-gradient(135deg, #e3f2fd, #f1f7ff);
   color: #0f172a;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid #b3e5fc;
 }
 
 .savingsLeft,
