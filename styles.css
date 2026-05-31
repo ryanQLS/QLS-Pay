@@ -713,4 +713,81 @@ body::before {
       gap: 18px;
       text-align: center;
     }
-  }
+/* FIX TEXT CONTRAST */
+
+/* White/light sections */
+.compare,
+.savings,
+.how {
+  color: #0f172a;
+}
+
+.compare span,
+.savings .label,
+.how .label {
+  color: #0284c7;
+}
+
+.compare b {
+  color: #64748b;
+}
+
+.savings h2,
+.how h2,
+.savings .highlight {
+  color: #0f172a !important;
+}
+
+.savingsRight p,
+.how .step p {
+  color: #334155 !important;
+}
+
+.how .step h3 {
+  color: #0f172a;
+}
+
+.how .num {
+  color: #0284c7;
+}
+
+/* Dark sections */
+.why,
+.audit,
+footer {
+  color: #f8fafc;
+}
+
+.why .label,
+.audit .label {
+  color: #22d3ee;
+}
+
+.why h2,
+.why h3,
+.audit h2 {
+  color: #f8fafc !important;
+}
+
+.why .card p,
+.audit p,
+.audit .small,
+footer,
+footer a {
+  color: #cbd5e1 !important;
+}
+
+.audit h2 em {
+  color: #22d3ee !important;
+}
+
+/* Fix form on dark background */
+.form input {
+  color: #f8fafc;
+}
+
+.form input::placeholder {
+  color: #94a3b8;
+}  
+
+}
