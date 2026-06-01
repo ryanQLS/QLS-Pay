@@ -9,12 +9,12 @@
 
 <body>
   <nav class="nav">
-    <div class="logo">QLS<span>PAY</span></div>
+    <a href="index.html" class="logo"><img src="assets/qls-logo.png" alt="QLS Pay Logo"></a>
 
     <div class="links">
-      <a href="#how">How it works</a>
-      <a href="#why">Why us</a>
-      <a href="#partners">Partners</a>
+        <a href="#partners">Partners</a>      
+        <a href="#how">How it works</a>
+        <a href="#why">Why us</a>
     </div>
 
     <a class="navCta" href="#audit">Compare Rates →</a>
@@ -150,8 +150,11 @@
         where your business may be able to reduce payment processing costs.
       </p>
 
-      <form class="form">
-        <input type="email" placeholder="Business email address">
+      <form class="form" action="https://formsubmit.co/info@qlspay.ca" method="POST">
+        <input type="email" name="email" placeholder="Business email address" required>
+        <input type="hidden" name="_subject" value="QLS Pay - Rate Audit Request">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_autoresponse" value="Thank you for submitting your business email! Please reply to this email with your most recent merchant statement so we can review your current payment processing costs and identify savings opportunities. We look forward to helping you pay less.">
         <button type="submit">Get Free Audit</button>
       </form>
 
@@ -162,12 +165,12 @@
   </section>
 
   <footer>
-    <div class="logo">QLS<span>PAY</span></div>
+    <a href="index.html" class="logo"><img src="assets/qls-logo.png" alt="QLS Pay Logo"></a>
     <div>© 2026 QLS PAY · INDEPENDENT PAYMENT ADVISORY</div>
     <div>
-      <a href="#">PRIVACY</a>
-      <a href="#">TERMS</a>
-      <a href="#">CONTACT</a>
+      <a href="pages/privacy.html">PRIVACY</a>
+      <a href="pages/terms.html">TERMS</a>
+      <a href="mailto:info@qlspay.ca">info@qlspay.ca</a>
     </div>
   </footer>
   <script src="script.js"></script>
