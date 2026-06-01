@@ -150,11 +150,12 @@
         where your business may be able to reduce payment processing costs.
       </p>
 
-      <form class="form" action="https://formsubmit.co/info@qlspay.ca" method="POST">
+      <form class="form" id="auditForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="7bea35fd-72a8-4d81-b5e3-06a22e3b2e44">
         <input type="email" name="email" placeholder="Business email address" required>
-        <input type="hidden" name="_subject" value="QLS Pay - Rate Audit Request">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_autoresponse" value="Thank you for submitting your business email! Please reply to this email with your most recent merchant statement so we can review your current payment processing costs and identify savings opportunities. We look forward to helping you pay less.">
+        <input type="hidden" name="subject" value="QLS Pay - Free Rate Audit Request">
+        <input type="hidden" name="message" value="A new business has requested a free rate audit. Please reach out to them to request their merchant statement for review.">
+        <input type="hidden" name="redirect" value="thank-you.html">
         <button type="submit">Get Free Audit</button>
       </form>
 
