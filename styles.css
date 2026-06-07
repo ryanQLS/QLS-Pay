@@ -538,6 +538,11 @@ h3 {
   gap: 12px;
 }
 
+/* Simple audit note styling (minimal) */
+#auditNote { margin: 48px auto 0; max-width: 620px; }
+#auditNote a { color: #38bdf8; text-decoration: underline; font-weight:700; }
+#auditNote a.copied { color: #bbf7d0; }
+
 .form input {
   flex: 1;
   height: 60px;

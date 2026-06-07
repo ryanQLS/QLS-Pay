@@ -48,9 +48,9 @@
   <section id="partners" class="compare reveal">
     <span>OUR PARTNERS</span>
     <b>CLOVER</b>
-    <b>MONERIS</b>
-    <b>NUVEI</b>
-    <b>SQUARE</b>
+    <!--<b>MONERIS</b>-->
+    <!--<b>NUVEI</b>-->
+    <!--<b>SQUARE</b>-->
     <b>GLOBAL</b>
   </section>
 
@@ -150,14 +150,9 @@
         where your business may be able to reduce payment processing costs.
       </p>
 
-      <form class="form" id="auditForm" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="7bea35fd-72a8-4d81-b5e3-06a22e3b2e44">
-        <input type="email" name="email" placeholder="Business email address" required>
-        <input type="hidden" name="subject" value="QLS Pay - Free Rate Audit Request">
-        <input type="hidden" name="message" value="A new business has requested a free rate audit. Please reach out to them to request their merchant statement for review.">
-        <input type="hidden" name="redirect" value="thank-you.html">
-        <button type="submit">Get Free Audit</button>
-      </form>
+      <div id="auditNote" style="margin:48px auto 0; text-align:center;">
+        <p><strong>Send statement to </strong><a href="#" id="copyEmail">info@qlspay.ca</a></p>
+      </div>
 
       <div class="small">
         NO OBLIGATION · CONFIDENTIAL · SIMPLE PROCESS
